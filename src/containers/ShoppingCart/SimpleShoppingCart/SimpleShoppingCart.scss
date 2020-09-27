@@ -1,0 +1,102 @@
+@import '../../../styles/shared.scss';
+
+.simple-shopping-cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  width: 420px;
+  max-width: 70%;
+  height: 100%;
+  max-height: calc(100vh - 56px);
+  right: 0;
+  top: 56px;
+  z-index: 100;
+  background-color: white;
+  padding: 32px 16px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-out;
+  box-shadow: -5px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  .simple-cart-header {
+    text-align: center;
+    line-height: 40px;
+    font-size: 25px;
+    margin-bottom: 30px;
+  }
+  .simple-cart-content {
+    overflow-y: scroll;
+    max-height: 500px;
+  }
+  .simple-cart-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .total {
+      span {
+        font-weight: bold;
+      }
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .checkout-button {
+      height: 30px;
+      width: 50%;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
+      background: linear-gradient(90deg, #fcb045 0%, #ff6a6a 50%, #a34edd 100%);
+    }
+  }
+}
+
+@media (max-width: 736px) {
+  .simple-shopping-cart {
+    display: none;
+  }
+}
+
+.simple-cart-open {
+  transform: translateX(0);
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(.82, .1, .14, 1.1);
+}
+
+.simple-cart-close {
+  transform: translateX(100%);
+  transition-duration: 0.5s;
+  transition-timing-function: cubic-bezier(.82, .1, .14, 1.1);
+}
+
+.simple-cart-toggle {
+  width: 50px;
+  height: 50px;
+  color: white;
+  background-color: $primary-one;
+  text-align: center;
+  line-height: 50px;
+  position: absolute;
+  top: 0;
+  left: -50px;
+  cursor: pointer;
+  border-radius: 0 0 0 5px;
+}
+
+.total-products {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  color: black;
+  font-weight: 700;
+  font-size: .7em;
+  text-align: center;
+  line-height: 18px;
+  border-radius: 50%;
+  background-color: $primary-three;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
